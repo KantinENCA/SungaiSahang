@@ -1,0 +1,115 @@
+body {
+  background-color: #f8f9fa;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  color: #212529;
+}
+header {
+  display: flex;
+  align-items: center;
+  padding: 20px 50px;
+  background-color: #f8f8f8;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.logoibu {
+  width: 50px;
+  height: 50px;
+}
+.logo {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #d92323;
+}
+
+.carousel {
+  position: relative;
+  width: 80%;
+  max-width: 700px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-images img {
+  width: 100%;
+  flex-shrink: 0;
+}
+
+.carousel-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.carousel-dots button {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dots button.active {
+  background: #333;
+}
+
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+}
+
+.carousel-controls button {
+  background: rgba(255, 255, 255, 0.8);
+  border: 2px solid #333;
+  color: #333;
+  font-size: 20px;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s, transform 0.3s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.carousel-controls button:hover {
+  background: #333;
+  color: white;
+  transform: scale(1.1);
+}
+
+.carousel-controls button:active {
+  transform: scale(0.95);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Bowlby+One&family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Slab:wght@100..900&display=swap");
+.judul {
+  text-align: center;
+  font-size: 40px;
+  color: chocolate;
+  font-family: bow;
+  letter-spacing: 3px;
+}
+h2 {
+  margin-left: 12px;
+  color: #212529;
+}
+
+/* Mode HP */
+@media screen and (max-width: 768px) {
+}

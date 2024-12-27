@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | </title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="style3.css">
+    <link rel="icon" href="logo_kantin_enca-removebg-preview.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <img class="logoibu" src="logo_kantin_enca-removebg-preview.png" alt="">
+        <div class="logo">Kantin ENCA</div>
+    </header>
+
+    <button id="openMenu"><i class="fa-solid fa-book"></i></button>
+    <div id="menuModal">
+        <button id="closeMenu" class="close-btn">×</button>
+        <div class="menu-content">
+
+            <h3 class="da">Daftar Anggota</h3>
+            <ul>
+                <li><span><strong>Nama</strong></span><span><strong>NIM</strong></span></li>
+                <li><span>Alya Sahri Umairah</span><span>062440833239</span></li>
+                <li><span>Anissa Shalsabillah</span><span>062440833240</span></li>
+                <li><span>Athaya Cahyarani Zayyan</span><span>062440833231</span></li>
+                <li><span>Julia Citra Anggraini</span><span>062440833250</span></li>
+                <li><span>Muhammad Bintang</span><span>062440833255</span></li>
+                <li><span>Muhammad Zahran Mu'tashim</span><span>062440833256</span></li>
+                <li><span>Rian Dwi Efendi</span><span>062440833259</span></li>
+                <li><span>Silvi Fitriyani</span><span>062440833261</span></li>
+                <li><span>Vepi Nur Dea Zahra</span><span>062440833264</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <button id="backButton">
+        ←
+    </button>
+
+    <section class="foto-container">
+        <img src="About Us_20241218_222832_0000-1.png" alt="Foto">
+    </section>
+
+    <script>
+        document.getElementById("backButton").onclick = function () {
+            window.history.back();
+        };
+
+        const openMenuButton = document.getElementById('openMenu');
+        const menuModal = document.getElementById('menuModal');
+        const closeMenuButton = document.getElementById('closeMenu');
+
+        openMenuButton.addEventListener('click', () => {
+            menuModal.classList.add('active');
+        });
+
+        closeMenuButton.addEventListener('click', () => {
+            menuModal.classList.remove('active');
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === menuModal) {
+                menuModal.classList.remove('active');
+            }
+        });
+
+    </script>
+</body>
+
+</html>

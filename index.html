@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kantin ENCA | Sungai Sahang</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="icon" href="logo_kantin_enca-removebg-preview.ico" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="home"></div>
+    <header>
+        <img class="logoibu" src="logo_kantin_enca-removebg-preview.png" alt="">
+        <div class="logo">Kantin ENCA</div>
+
+        <div class="navuli">
+            <nav>
+                <ul>
+                    <li><a class="cete" href="#food">Food</a></li>
+                    <li><a class="cete" href="#beverages">Beverages</a></li>
+                    <li><a href="index2.html">Gallery</a></li>
+                    <li><a href="index3.html">About</a></li>
+                    <li><a href="http://wa.me/+6288286291706">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        &nbsp;&nbsp;
+        <div class="search-container">
+            <input type="text" id="searchInput" placeholder="contoh : mie_Ayam">
+            <button id="searchButton">Search</button>
+        </div>
+    </header>
+
+    <section class="welcom">
+        <div class="welcom-text">
+            <h1 style="font-family: 'Wendy One', sans-serif; color: #82211c;">Welcome to Kantin ENCA</h1>
+            <h1 style="font-family: 'Patrick Hand', cursive; color: #82211c;">Selamat Berbelanja!</h1>
+        </div>
+
+        <div class="welcom-image">
+            <img src="logo_kantin_enca-removebg-preview.png" alt="">
+        </div>
+    </section>
+
+    <button id="openMenu"><i class="fa-solid fa-book"></i></button>
+    <div id="menuModal">
+        <button id="closeMenu" class="close-btn">×</button>
+        <div class="menu-content">
+            <h2 class="dm">Daftar Menu</h2>
+            <h3>Makanan</h3>
+            <ul>
+                <li><span>Mie Ayam <span
+                            class="dots">................................................................................</span>
+                    </span><span>Rp 10.000</span></li>
+                <li><span>Martabak Kari<span class="dotd">..............................</span>
+                    </span></span><span>Rp.10 000</span></li>
+                <li><span>Mie Goreng Spesial</span><span>Rp 8.000</span></li>
+                <li><span>Nasi Goreng</span><span>Rp 10.000</span></li>
+                <li><span>Mie Tumis</span><span>Rp 10.000</span></li>
+                <li><span>Nasi Ayam Geprek</span><span>Rp 10.000</span></li>
+                <li><span>Sosis/Bakso</span><span>Rp 1.000</span></li>
+            </ul>
+
+            <br>
+            <h3>Minuman</h3>
+            <ul>
+                <li><span>Es Jeruk</span><span>Rp 5.000</span></li>
+                <li><span>Cappucino</span><span>Rp 5.000</span></li>
+                <li><span>Bengbeng</span><span>Rp 5.000</span></li>
+                <li><span>Pop-Ice</span><span>Rp 5.000</span></li>
+                <li><span>Nutrisari</span><span>Rp 5.000</span></li>
+                <li><span>Milo</span><span>Rp 5.000</span></li>
+                <li><span>Teh Sisri</span><span>Rp 2.000</span></li>
+                <li><span>Teajus</span><span>Rp 2.000</span></li>
+                <li><span>Jus Mangga</span><span>Rp 5.000</span></li>
+                <li><span>Jus Buah Naga</span><span>Rp 5.000</span></li>
+                <li><span>Jus Apel</span><span>Rp 5.000</span></li>
+                <li><span>Jus Alpukat</span><span>Rp 5.000</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <a href="https://maps.app.goo.gl/wpnPqCyLWkfLmYex8" target="_blank" class="gmaps">
+        <i class="fa-regular fa-map"></i>
+    </a>
+    <div id="menu"></div>
+
+    <section class="best-saller">
+        <div class="content">
+            <img class="pot" src="nasi ayam geprek.png" alt="Nasi Ayam Geprek">
+            <div class="text">
+                <h1  class="bs">Best Seller</h1>
+                <p class="sb">1. "Sahabat Setia Anak Kos!"
+                Porsi kenyang, harga hemat. Nasi Ayam Geprek, solusi perut lapar di akhir bulan.
+                2. "Teman Setia Saat Deadline!"
+                Nasi Ayam Geprek, solusi lezat dan hemat untuk menemani perjuangan tugas sampai subuh.
+                3. "Geprek Dulu, Tugas Kemudian!"
+                Nasi Ayam Geprek siap menemani perjalanan panjang menuju wisuda.</p>
+            </div>
+        </div>
+    </section>
+
+    <svg class="my-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+        <path fill="#a62626" fill-opacity="1"
+            d="M0,256L120,234.7C240,213,480,171,720,165.3C960,160,1200,192,1320,208L1440,224L1440,0L1320,0C1200,0,960,0,720,0C480,0,240,0,120,0L0,0Z">
+        </path>
+    </svg>
+
+    <div class="bgj"><br><br><br><br>
+
+        <section class="jumbotron"><br>
+            <h2 style="font-family: 'Wendy One', sans-serif; color: #82211c;" class="makanan" id="food">Food</h2>
+
+            <div class="card-container">
+                <div class="card-group">
+
+                    <div class="card-miayam">
+                        <p class="namaminumn" id="mie_Ayam">Mie Ayam (Rp 10.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('mie_Ayam')">-</button>
+                            <span id="mie_Ayam_count" class="count">0</span>
+                            <button type="button" onclick="increment('mie_Ayam')">+</button>
+                        </div>
+                    </div>
+
+                    <div class="card-markari">
+                        <p class="namaminumn" id="martabak_Kari">Martabak Kari (Rp 10.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('martabak_Kari')">-</button>
+                            <span id="martabak_Kari_count" class="count">0</span>
+                            <button type="button" onclick="increment('martabak_Kari')">+</button>
+                        </div>
+                    </div>
+
+                    <div class="card-migoreng">
+                        <p class="namaminumn" id="mie_Goreng">Mie Goreng Spesial (Rp 8.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('mie_Goreng')">-</button>
+                            <span id="mie_Goreng_count" class="count">0</span>
+                            <button type="button" onclick="increment('mie_Goreng')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-group">
+                    <div class="card-nasigoreng">
+                        <p class="namaminumn" id="nasi_Goreng">Nasi Goreng (Rp.10.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('nasi_Goreng')">-</button>
+                            <span id="nasi_Goreng_count" class="count">0</span>
+                            <button type="button" onclick="increment('nasi_Goreng')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-mietumis">
+                        <p class="namaminumn" id="mie_Tumis">Mie Tumis (Rp.10.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('mie_Tumis')">-</button>
+                            <span id="mie_Tumis_count" class="count">0</span>
+                            <button type="button" onclick="increment('mie_Tumis')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-ayamgeprek">
+                        <p class="namaminumn" id="nasi_AyamGeprek">Nasi Ayam Geprek (Rp.10.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('nasi_AyamGeprek')">-</button>
+                            <span id="nasi_AyamGeprek_count" class="count">0</span>
+                            <button type="button" onclick="increment('nasi_AyamGeprek')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="card-group">
+                    <div class="card-sosisbakso">
+                        <p class="namaminumn" id="sosis_Bakso">Sosis/Bakso (Rp 1.000)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('sosis_Bakso')">-</button>
+                            <span id="sosis_Bakso_count" class="count">0</span>
+                            <button type="button" onclick="increment('sosis_Bakso')">+</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+
+    <section class="bgv">
+        <div class="cat">
+            <h2 style="font-family: 'Wendy One', sans-serif; color: #82211c;" class="minuman" id="beverages">Beverages
+            </h2>
+            <div class="card-container">
+                <div class="card-group">
+
+                    <div class="card-esjeruk" id="es_Jeruk">
+                        <p class="namaminumn">Es Jeruk (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('es_Jeruk')">-</button>
+                            <span id="es_Jeruk_count" class="count">0</span>
+                            <button type="button" onclick="increment('es_Jeruk')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-cappucino" id="cappucino">
+                        <p class="namaminumn">Cappucino (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('cappucino')">-</button>
+                            <span id="cappucino_count" class="count">0</span>
+                            <button type="button" onclick="increment('cappucino')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-bengbeng" id="bengbeng">
+                        <p class="namaminumn">Bengbeng (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('bengbeng')">-</button>
+                            <span id="bengbeng_count" class="count">0</span>
+                            <button type="button" onclick="increment('bengbeng')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-group">
+                    <div class="card-popice" id="pop_Ice">
+                        <p class="namaminumn">Pop Ice (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('pop_Ice')">-</button>
+                            <span id="pop_Ice_count" class="count">0</span>
+                            <button type="button" onclick="increment('pop_Ice')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-nutrisari" id="nutrisari">
+                        <p class="namaminumn">Nutrisari (4rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('nutrisari')">-</button>
+                            <span id="nutrisari_count" class="count">0</span>
+                            <button type="button" onclick="increment('nutrisari')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-milo" id="milo">
+                        <p class="namaminumn">Milo (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('milo')">-</button>
+                            <span id="milo_count" class="count">0</span>
+                            <button type="button" onclick="increment('milo')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-group" id="teh_Sisri">
+                    <div class="card-tehsisri">
+                        <p class="namaminumn">Teh Sisri (2rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('teh_Sisri')">-</button>
+                            <span id="teh_Sisri_count" class="count">0</span>
+                            <button type="button" onclick="increment('teh_Sisri')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-teajus" id="teajus">
+                        <p class="namaminumn">Teajus (2rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('teajus')">-</button>
+                            <span id="teajus_count" class="count">0</span>
+                            <button type="button" onclick="increment('teajus')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-jusmangga" id="jus_Mangga">
+                        <p class="namaminumn">Jus Mangga (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('jus_Mangga')">-</button>
+                            <span id="jus_Mangga_count" class="count">0</span>
+                            <button type="button" onclick="increment('jus_Mangga')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card-group">
+                    <div class="card-jusbuahnaga" id="jus_BuahNaga">
+                        <p class="namaminumn">Jus Buah Naga (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('jus_BuahNaga')">-</button>
+                            <span id="jus_BuahNaga_count" class="count">0</span>
+                            <button type="button" onclick="increment('jus_BuahNaga')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-jusapel" id="jus_Apel">
+                        <p class="namaminumn">Jus Apel (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('jus_Apel')">-</button>
+                            <span id="jus_Apel_count" class="count">0</span>
+                            <button type="button" onclick="increment('jus_Apel')">+</button>
+                        </div>
+                    </div>
+                    <div class="card-jusalpukat" id="jus_Alpukat">
+                        <p class="namaminumn">Jus Alpukat (5rb)</p>
+                        <div class="button-container">
+                            <button type="button" onclick="decrement('jus_Alpukat')">-</button>
+                            <span id="jus_Alpukat_count" class="count">0</span>
+                            <button type="button" onclick="increment('jus_Alpukat')">+</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="ctarr"><br><br><br><br><br><br>
+        <div class="cod">
+            <label for="inputText">Nama Pembeli : <span class="red"><strong>*wajib di isi</strong></span></label><br>
+            <input type="text" id="inputText" placeholder="Masukkan Nama Anda disini">
+        </div>
+
+        <fieldset class="catatan-fieldset">
+            <legend>Catatan Pembeli</legend>
+            <textarea id="catatanPembeli"
+                placeholder="Silakan mengisi form di sini, misalnya:tingkat kepedasan yaitu tidak pedas, pop ice rasa taro, dll"
+                class="catatan"></textarea>
+        </fieldset>
+        <div class="cod">
+            <label for="deliveryOption">Pilih cara pengantaran:</label>
+            <select id="deliveryOption">
+                <option value="makan_di_tempat">Makan di Tempat</option>
+                <option value="anter_ke_lobi">Anter ke Lobi</option>
+            </select>
+        </div>
+
+
+        <div class="price-and-buttons">
+            <div class="total-price">
+                <p>Total Harga: <span id="total-harga">Rp 0</span></p>
+            </div>
+            <div class="buttons-container">
+                <button type="button" class="reset-order" onclick="resetOrder()">Reset</button>
+
+                <button type="button" class="order-now" onclick="submitOrder()">Pesan Sekarang</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="output" style="display: none;"></div>
+    <button id="copyButton" style="display: none;" onclick="copyOutput()">Salin Struk</button>
+
+
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-about">
+                <h2>Kantin ENCA</h2>
+                <p>
+                    Kantin ENCA menyediakan makanan dan minuman lezat dengan harga terjangkau.
+                    Selalu siap melayani kebutuhan Anda dengan kualitas terbaik.
+                </p>
+                <p>
+                    <strong>Hubungi Kami:</strong>
+                    <br>Telepon: 0882-8629-1706
+                    <br>Email: kantinenca@gmail.com
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <h3>Navigasi</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="index3.html">Tentang Kami</a></li>
+                    <li><a href="http://wa.me/+6288286291706">Hubungi Kami</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Kelompok 2 Logika Pemrograman 1 MIB. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

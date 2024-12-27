@@ -87,6 +87,7 @@ ul li {
   display: block;
 }
 #backButton {
+  all: unset;
   position: fixed;
   bottom: 20px;
   right: 20px;

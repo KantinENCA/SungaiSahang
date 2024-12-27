@@ -5,50 +5,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery | </title>
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="style3.css">
     <link rel="icon" href="logo_kantin_enca-removebg-preview.ico" type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css2?family=Wendy+One&family=Patrick+Hand&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <img class="logoibu" src="logo_kantin_enca-removebg-preview.png" alt="">
         <div class="logo">Kantin ENCA</div>
     </header>
+    <div class="bgfl">
+        <div class="bgja">
+            <h1 class="judul">GALLERY</h1>
 
-    <h1 class="judul">GALLERY</h1>
+            <button id="backButton">
+                ←
+            </button>
 
-    <button id="backButton">
-        ←
-    </button>
+            <div class="carousel">
+                <div class="carousel-images">
+                    <img src="Gambar WhatsApp 2024-12-26 pukul 18.07.02_36242e32.jpg" alt="Slide 1">
+                    <img src="Gambar WhatsApp 2024-12-26 pukul 18.05.33_9d57fae4.jpg" alt="Slide 2">
+                    <img src="Gambar WhatsApp 2024-12-26 pukul 17.52.46_0bbd1984.jpg" alt="Slide 3">
+                    <img src="Gambar WhatsApp 2024-12-26 pukul 17.51.55_c13f2f59.jpg" alt="">
+                </div>
+                <div class="carousel-dots">
+                    <button class="active" data-slide="0"></button>
+                    <button data-slide="1"></button>
+                    <button data-slide="2"></button>
+                    <button data-slide="3"></button>
+                </div>
+                <div class="carousel-controls">
+                    <button id="prev">&#10094;</button>
+                    <button id="next">&#10095;</button>
+                </div>
+            </div>
 
-<div class="carousel">
-    <div class="carousel-images">
-        <img src="Gambar WhatsApp 2024-12-26 pukul 18.07.02_36242e32.jpg" alt="Slide 1">
-        <img src="Gambar WhatsApp 2024-12-26 pukul 18.05.33_9d57fae4.jpg" alt="Slide 2">
-        <img src="Gambar WhatsApp 2024-12-26 pukul 17.52.46_0bbd1984.jpg" alt="Slide 3">
-        <img src="Gambar WhatsApp 2024-12-26 pukul 17.51.55_c13f2f59.jpg" alt="">
+        </div>
     </div>
-    <div class="carousel-dots">
-        <button class="active" data-slide="0"></button>
-        <button data-slide="1"></button>
-        <button data-slide="2"></button>
-        <button data-slide="3"></button>
-    </div>
-    <div class="carousel-controls">
-        <button id="prev">&#10094;</button>
-        <button id="next">&#10095;</button>
-    </div>
-</div>
-
-
     <script>
-    document.getElementById("backButton").onclick = function () {
-    window.history.back(); // Kembali ke halaman sebelumnya
-    };
+        document.getElementById("backButton").onclick = function () {
+            window.history.back(); // Kembali ke halaman sebelumnya
+        };
 
 
-     const images = document.querySelector('.carousel-images');
+        const images = document.querySelector('.carousel-images');
         const dots = document.querySelectorAll('.carousel-dots button');
         const prevButton = document.getElementById('prev');
         const nextButton = document.getElementById('next');

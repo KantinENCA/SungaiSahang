@@ -1,5 +1,9 @@
-.navulia {
-  margin-left: 40%;
+header {
+  display: flex;
+  align-items: center;
+  padding: 22px 50px;
+  background-color: #fff;
+  box-shadow: 0 5px 10px #b71c1c(0, 0, 0, 0.2);
 }
 button#openMenu {
   position: fixed;
@@ -55,7 +59,7 @@ ul li {
   justify-content: space-between;
   padding: 5px 0;
   border-bottom: 1px solid #ddd;
-} 
+}
 .close-btn {
   position: absolute;
   color: #f8f9fa;
@@ -107,20 +111,8 @@ ul li {
 
 /* Mode HP */
 @media screen and (max-width: 768px) {
-  .navuli {
-    margin-left: 0px;
-  }
-  .cete {
-    display: none;
-  }
-  .cta-buttons {
-    display: none;
-  }
   .logo {
     margin-left: -35px;
-  }
-  .logoibu {
-    display: none;
   }
   .cts {
     margin-left: -8px;

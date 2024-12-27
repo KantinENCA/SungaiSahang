@@ -117,7 +117,7 @@ function resetOrder() {
 function submitOrder() {
   let orderDetails = "";
   let total = 0;
-  let isOrderEmpty = true; // Variabel untuk mengecek apakah ada pesanan
+  let isOrderEmpty = true;
 
   for (let item in prices) {
     const quantity =
@@ -125,9 +125,9 @@ function submitOrder() {
     if (quantity > 0) {
       orderDetails += `${
         item.charAt(0).toUpperCase() + item.slice(1)
-      }: ${quantity} x Rp ${prices[item].toLocaleString()}<br>`;
+      }: ${quantity} x Rp ${prices[item].toLocaleString()}\n`;
       total += prices[item] * quantity;
-      isOrderEmpty = false; // Menandakan ada pesanan
+      isOrderEmpty = false;
     }
   }
 
@@ -138,7 +138,6 @@ function submitOrder() {
   const deliveryOption =
     document.getElementById("deliveryOption")?.value || "makan_di_tempat";
 
-  // Cek apakah nama atau pesanan kosong
   if (!namaPembeli && isOrderEmpty) {
     alert("Nama dan pesanan belum terisi!");
     return;
@@ -154,64 +153,155 @@ function submitOrder() {
     return;
   }
 
-  alert("Pesanan berhasil dibuat! Silakan salin struk di bawah ini");
+  alert("Pesanan berhasil dibuat! Silakan kirim struk melalui WhatsApp");
 
   if (orderDetails) {
     const output = document.getElementById("output");
     const strukContainer = document.createElement("div");
-    const copyButton = document.createElement("button");
+    const whatsappButton = document.createElement("button");
 
-    const strukContent = `  
+    const strukContent = `
+Struk Pesanan
+${orderDetails}
+Nama Pembeli: ${namaPembeli}
+Catatan: ${catatan}
+Pengantaran: ${
+      deliveryOption === "makan_di_tempat" ? "Makan di Tempat" : "Anter ke Lobi"
+    }
+Total: Rp ${total.toLocaleString()}`;
+
+    // Membuat konten HTML untuk ditampilkan
+    const strukHTML = `  
       <h3>Struk Pesanan</h3>
-      ${orderDetails}
+      ${orderDetails.replace(/\n/g, "<br>")}
       <p><strong>Nama Pembeli:</strong> ${namaPembeli}</p>
       <strong>Catatan:</strong> ${catatan}<br>
       <strong>Pengantaran:</strong> ${
         deliveryOption === "makan_di_tempat"
           ? "Makan di Tempat"
           : "Anter ke Lobi"
-      }
+      }<br>
       <strong>Total: Rp ${total.toLocaleString()}</strong>`;
 
-    strukContainer.innerHTML = strukContent;
+    strukContainer.innerHTML = strukHTML;
 
-    copyButton.textContent = "Salin Struk";
-    copyButton.style.cssText = `
+    // Membuat tombol WhatsApp
+    whatsappButton.innerHTML =
+      '<i class="fab fa-whatsapp"></i> Kirim via WhatsApp';
+    whatsappButton.style.cssText = `
         padding: 8px 16px;
         margin: 10px 0;
         cursor: pointer;
-        background-color: #d92323;
+        background-color: #25D366;
         color: white;
         border: none;
         border-radius: 4px;
         font-size: 14px;
-        margin-bottom: 10px; 
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 10px;
     `;
 
-    copyButton.onclick = function () {
-      const tempDiv = document.createElement("div");
-      tempDiv.innerHTML = strukContent;
-      const strukText = tempDiv.innerText;
+    whatsappButton.onclick = function () {
+      // Nomor WhatsApp tujuan
+      const phoneNumber = "6288286291706";
 
-      navigator.clipboard
-        .writeText(strukText)
-        .then(() => {
-          alert(
-            "Struk berhasil tersalin! Silakan mengirimkan struk ini ke nomor +6288286291706 di bagian contact / hubungi kami"
-          );
-        })
-        .catch((err) => {
-          console.error("Gagal menyalin teks: ", err);
-          alert("Gagal menyalin struk. Silakan coba lagi.");
-        });
+      // Encode pesan untuk URL
+      const encodedText = encodeURIComponent(strukContent);
+
+      // Buat URL WhatsApp
+      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+
+      // Buka WhatsApp di tab baru
+      window.open(whatsappUrl, "_blank");
     };
 
     output.style.display = "block";
     output.innerHTML = "";
     output.appendChild(strukContainer);
-    output.appendChild(copyButton);
+    output.appendChild(whatsappButton);
   }
 }
+
+document.getElementById("resetButton").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  // Periksa apakah ada pesanan
+  let isOrderEmpty = true;
+  for (let item in prices) {
+    const quantity =
+      parseInt(document.getElementById(item + "_count").textContent, 10) || 0;
+    if (quantity > 0) {
+      isOrderEmpty = false;
+      break;
+    }
+  }
+
+  if (isOrderEmpty) {
+    alert("Tidak dapat mereset! Pilih menu terlebih dahulu!");
+    return;
+  }
+
+  // Buat elemen modal jika belum ada
+  let modal = document.getElementById("confirmationModal");
+  if (!modal) {
+    modal = document.createElement("div");
+    modal.id = "confirmationModal";
+    modal.style.cssText = `
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    `;
+    modal.innerHTML = `
+      <div style="
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 400px;
+        width: 100%; ">
+        <p>Apakah Anda yakin ingin mereset pesanan?</p>
+        <button id="confirmYes" style="
+          background-color: #28a745;
+          color: white;
+          margin: 10px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;">Ya</button>
+        <button id="confirmNo" style="
+          background-color: #dc3545;
+          color: white;
+          margin: 10px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;">Tidak</button>
+      </div>
+    `;
+    document.body.appendChild(modal);
+  }
+
+  modal.style.display = "flex";
+
+  document.getElementById("confirmYes").addEventListener("click", function () {
+    resetOrder();
+    modal.style.display = "none";
+  });
+
+  document.getElementById("confirmNo").addEventListener("click", function () {
+    modal.style.display = "none";
+  });
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".best-saller");
@@ -222,11 +312,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const currentScroll =
       window.pageYOffset || document.documentElement.scrollTop;
 
-    // Deteksi ketika bagian section masuk ke dalam viewport
     const sectionTop = section.offsetTop;
     const sectionHeight = section.offsetHeight;
 
-    // Cek apakah section sudah berada dalam viewport
     if (currentScroll > sectionTop - window.innerHeight / 2) {
       content.classList.add("visible");
     } else {

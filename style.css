@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  color: #f8f9fa;
+  color: #212529;
 }
 /* bootstrap */
 .navbar {
@@ -26,19 +26,17 @@ body {
 header {
   display: flex;
   align-items: center;
-  padding: 20px 50px;
+  padding: 15px 50px;
   background-color: #fff;
   box-shadow: 0 5px 10px #b71c1c(0, 0, 0, 0.2);
-}
-.logoibu {
-  width: 50px;
-  height: 50px;
 }
 .logo {
   margin-left: 10px;
   font-size: 24px;
   font-weight: bold;
-  color: #d92323;
+  font-family: 'Wendy One', sans-serif;
+ color: #d92323;
+ letter-spacing: 2px;
 }
 nav ul {
   list-style: none;
@@ -365,11 +363,10 @@ html {
   padding-left: 10%;
   display: flex;
   gap: 8%;
-  
 }
 .text {
   margin-top: -4%;
-  max-width: 600px;
+  max-width: 800px;
   text-align: justify;
 }
 .pot {
@@ -387,16 +384,19 @@ html {
   }
 }
 .bs {
-  font-size: 48px;
+  font-size: 40px;
   text-decoration: double;
   font-family: "Wendy One", sans-serif;
   color: #f8f9fa;
   letter-spacing: 4px;
+  margin-bottom: -10px;
 }
 .sb {
   font-family: "Patrick Hand", cursive;
   color: #f8f9fa;
   font-weight: 600;
+  line-height: 2;
+  font-size: 22px;
 }
 .button-container {
   position: absolute;
@@ -595,12 +595,11 @@ footer {
   outline: none;
 }
 #output {
-  background-image: url(struk.jpg);
+  background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Banner\ Sedang\ \(AS\)\ \(Horizontal\)\).jpg);
   background-size: 100% 100%;
   display: none;
   margin: 0;
   padding: 15px;
-  border: 1px solid #ddd;
   border-radius: 5px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
@@ -689,9 +688,6 @@ footer {
     margin-left: -35px;
     white-space: nowrap;
   }
-  .logoibu {
-    display: none;
-  }
   .price-and-buttons {
     gap: 20px;
   }
@@ -731,6 +727,11 @@ footer {
   }
   .jumbotron {
     margin-top: -35px;
+  }
+  .welcom {
+    background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Kisah\ Anda\)11.jpg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
   .welcom-text {
     width: 160px;
@@ -773,11 +774,17 @@ footer {
   .pot {
     width: 175px;
     height: 175px;
+    margin-top: -10px;
+  }
+  .bs {
+    margin-top: 0px;
   }
   .sb {
-    margin-top: 70px;
+    margin-top: 50px;
     margin-left: -120%;
-    max-width: 320px;
+    max-width: 400px;
+    line-height: 1.5;
+    font-size: 20px;
   }
   .dots {
     display: none;

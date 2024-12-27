@@ -670,15 +670,6 @@ footer {
   background-size: 100% 100%;
   margin-top: -40px;
 }
-.phone-number {
-    color: white;
-    text-decoration: none; /* Tidak ada garis bawah */
-}
-
-.email-link {
-    color: white;
-    text-decoration: none; /* Tidak ada garis bawah */
-}
 /* Mode HP */
 @media screen and (max-width: 768px) {
   .search-container {

@@ -129,11 +129,4 @@ ul li {
     object-fit: cover;
     object-position: center center;
   }
-  ul li {
-    border-bottom: none;
-  }
-
-  ul li span:last-child {
-    color: black;
-  }
 }

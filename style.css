@@ -231,7 +231,7 @@ html {
   color: chocolate;
   margin-left: 148px;
   margin-bottom: 15px;
-  margin-top: 10px;
+  margin-top: 200px;
   font-size: 38px;
   letter-spacing: 4px;
 }
@@ -240,7 +240,7 @@ html {
   .makanan {
     margin-left: 20px;
     margin-bottom: 10px;
-    margin-top: 5px;
+    margin-top: 60px;
   }
 }
 .card-group {
@@ -664,19 +664,30 @@ footer {
   color: #212529;
   font-family: "Patrick Hand", cursive;
   font-weight: 800;
+  letter-spacing: 1.8px;
 }
 .ctarr {
   background-image: url(catatan\ pembeli.jpg);
   background-size: 100% 100%;
   margin-top: -40px;
 }
+.phone-number {
+    color: white;
+    text-decoration: none;
+}
+
+.email-link {
+    color: white;
+    text-decoration: none;
+}
+
 /* Mode HP */
 @media screen and (max-width: 768px) {
   .search-container {
     display: none;
   }
   .navuli {
-    margin-left: -35px;
+    margin-left: -42px;
   }
   .cete {
     display: none;
@@ -734,7 +745,7 @@ footer {
     background-repeat: no-repeat;
   }
   .welcom-text {
-    width: 160px;
+    width: 130px;
     padding: 0;
   }
   .welcom-image {
@@ -778,11 +789,12 @@ footer {
   }
   .bs {
     margin-top: 0px;
+    margin-left: -8%;
   }
   .sb {
     margin-top: 50px;
-    margin-left: -120%;
-    max-width: 400px;
+    margin-left: -130%;
+    max-width: 350px;
     line-height: 1.5;
     font-size: 20px;
   }

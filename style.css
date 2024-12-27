@@ -792,4 +792,12 @@ footer {
   .dotd {
     color: transparent;
   }
+  .phone-number {
+    color: white;
+    text-decoration: none;
+    }
+  .email-link {
+    color: white;
+   text-decoration: none; 
+    }
 }

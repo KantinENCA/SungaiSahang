@@ -20,6 +20,7 @@ const prices = {
   jus_Apel: 5000,
   jus_Alpukat: 5000,
 };
+
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document
     .getElementById("searchInput")
@@ -116,6 +117,7 @@ function resetOrder() {
 function submitOrder() {
   let orderDetails = "";
   let total = 0;
+  let isOrderEmpty = true; // Variabel untuk mengecek apakah ada pesanan
 
   for (let item in prices) {
     const quantity =
@@ -125,6 +127,7 @@ function submitOrder() {
         item.charAt(0).toUpperCase() + item.slice(1)
       }: ${quantity} x Rp ${prices[item].toLocaleString()}<br>`;
       total += prices[item] * quantity;
+      isOrderEmpty = false; // Menandakan ada pesanan
     }
   }
 
@@ -135,12 +138,23 @@ function submitOrder() {
   const deliveryOption =
     document.getElementById("deliveryOption")?.value || "makan_di_tempat";
 
+  // Cek apakah nama atau pesanan kosong
+  if (!namaPembeli && isOrderEmpty) {
+    alert("Nama dan pesanan belum terisi!");
+    return;
+  }
+
   if (!namaPembeli) {
     alert("Nama pembeli tidak boleh kosong!");
     return;
   }
 
-  alert("Pesanan berhasil dibuat! silahkan salin struk dibawah ini");
+  if (isOrderEmpty) {
+    alert("Pesanan belum diisi, silakan membuat pesanan.");
+    return;
+  }
+
+  alert("Pesanan berhasil dibuat! Silakan salin struk di bawah ini");
 
   if (orderDetails) {
     const output = document.getElementById("output");
@@ -197,6 +211,7 @@ function submitOrder() {
     output.appendChild(strukContainer);
     output.appendChild(copyButton);
   }
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".best-saller");
@@ -221,6 +236,3 @@ document.addEventListener("DOMContentLoaded", function () {
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
   });
 });
-
-  
-}

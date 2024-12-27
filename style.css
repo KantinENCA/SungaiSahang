@@ -201,9 +201,17 @@ ul li {
 main {
   padding: 1em;
 }
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .welcom {
   background-image: url(profil.jpg);
-  background-size: 100% 100%; /* Memperpanjang gambar latar belakang ke bawah */
+  background-size: 100% 100%;
   display: flex;
   align-items: center;
   height: 800px;
@@ -218,10 +226,21 @@ main {
   margin-left: 35%;
   letter-spacing: 4px;
   line-height: 0.8;
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out forwards;
 }
+
+.welcom-image img {
+  opacity: 0;
+  animation: fadeIn 2s ease-in-out 0.5s forwards;
+}
+
 .welcom-image {
   margin-left: 18%;
 }
+
+
+
 html {
   scroll-behavior: smooth;
 }
@@ -235,7 +254,9 @@ html {
   font-size: 38px;
   letter-spacing: 4px;
 }
-
+.minuman {
+  margin-top: 60px;
+}
 @media screen and (max-width: 768px) {
   .makanan {
     margin-left: 20px;
@@ -733,9 +754,6 @@ footer {
   .cat {
     margin-top: 1px;
   }
-  .minuman {
-    margin-left: 10px;
-  }
   .jumbotron {
     margin-top: -35px;
   }
@@ -793,10 +811,14 @@ footer {
   }
   .sb {
     margin-top: 50px;
-    margin-left: -130%;
+    margin-left: -120%;
     max-width: 350px;
     line-height: 1.5;
     font-size: 20px;
+  }
+  .minuman {
+    margin-top:50px;
+    margin-left: 10px;
   }
   .dots {
     display: none;

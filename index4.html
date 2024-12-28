@@ -16,15 +16,72 @@
 </head>
 
 <body>
-    <header>
-        <h1>Guide Book Kantin ENCA</h1>
-        <p>Ikuti langkah mudah untuk memesan makanan favorit Anda!</p>
-        <button class="btn-primary" id="startOrderBtn">Cara Pemesanan</button>
-    </header>
+<header>
+    <h1>Selamat Datang di Kantin Enca</h1>
+    <p>Ikuti langkah mudah untuk memesan makanan favorit Anda!</p>
+    <button class="btn-primary" id="startOrderBtn">Mulai Pesanan</button>
+</header>
+
+
+    <div class="steps-container" id="stepsContainer">
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+1" alt="Langkah 1">
+            <h3>Langkah 1: Tekan tombol E-Menu</h3>
+            <p>Dengan adanya E-Menu membuat pembeli dapat mengetahui apa saja yang tersedia.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+2" alt="Langkah 2">
+            <h3>Langkah 2: Tekan Tombol "+" untuk memilih pesanan</h3>
+            <p>Untuk memilih pesanan apa yang akan dipesan, pembeli dapat menekan tombol "+" untuk memilih berapa banyak pesanan dan tombol "-" untuk mengurangi pesanan.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+3" alt="Langkah 3">
+            <h3>Langkah 3: Isi data pembeli</h3>
+            <p>Isi data singkat seperti nama pemesan, catatan pembeli, dan cara pengantaran.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+4" alt="Langkah 4">
+            <h3>Langkah 4: Tekan tombol "Pesan Sekarang"</h3>
+            <p>Periksa kembali pesanan Anda, lalu klik "Pesan Sekarang" untuk mengonfirmasi dan mengirimkan
+                pesanan.</p>
+        </div>
+
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+5" alt="Langkah 5">
+            <h3>Langkah 5: Tekan tombol "Kirim via WhatsApp"</h3>
+            <p>Setelah pesanan berhasil dibuat, maka struk pembelian akan dicetak, dan pembeli dapat menekan langsung tombol "Kirim via WhatsApp".</p>
+        </div>
+
+        <div class="step">
+            <img src="https://via.placeholder.com/800x300?text=Langkah+6" alt="Langkah 6">
+            <h3>Langkah 6: Kirim Struk ke penjual melalui WhatsApp </h3>
+            <p>struk otomatis terkirim di draf pesan dan pembeli tinggal menekan tombol enter untuk mengirim pesanan.</p>
+        </div>
+    </div>
+
+    <button id="backButton" onclick="window.location.href='index.html'">←</button>
+
+    <footer id="footer">
+        <p>&copy; 2024 Kelompok 2 Logika Pemrograman 1 MIB. All Rights Reserved.</p>
+    </footer>
 
     <script>
         document.getElementById('startOrderBtn').addEventListener('click', function () {
-            alert('Mulai pesanan!');
+            document.querySelector('header').style.display = 'none';
+            document.getElementById('stepsContainer').style.display = 'grid';
+            document.getElementById('footer').style.display = 'block';
+
+            // Animasi untuk setiap kartu secara berurutan
+            const steps = document.querySelectorAll('.step');
+            steps.forEach((step, index) => {
+                setTimeout(() => {
+                    step.classList.add('show');
+                }, 200 * (index + 1));
+            });
+
         });
     </script>
 </body>

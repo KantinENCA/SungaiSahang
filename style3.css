@@ -39,8 +39,22 @@ button#openMenu {
   overflow: hidden;
   z-index: 1000;
 }
+.foto-container {
+  background-image: url(About\ Us_20241218_222832_0000-1.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
 .menu-content {
   padding: 20px;
+  letter-spacing: 1px;
 }
 .menu-content h3 {
   margin-top: 0;
@@ -118,20 +132,11 @@ ul li {
   .cts {
     margin-left: -8px;
   }
-  .foto-container {
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-
-  .foto-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center center;
-  }
   .nonim {
     list-style: none;
     color: #212529;
+  }
+  .foto-container {
+    background-image: url(about_20241228_211537_0000-1.png);
   }
 }

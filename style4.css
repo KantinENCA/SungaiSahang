@@ -6,111 +6,190 @@
 
 body {
   font-family: "Arial", sans-serif;
-  overflow-x: hidden;
-  background: #f0f0f0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
 header {
-  height: 100vh;
   position: relative;
-  background: linear-gradient(135deg, #d92323, #f44336);
-  /* Gradien yang lebih lembut */
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(to right, #d92323, #f44336);
   color: white;
+  text-align: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  text-align: center;
-  overflow: hidden;
-}
-
-header::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: url("https://via.placeholder.com/1500x1000?text=Kantin+Enca")
-    no-repeat center center/cover;
-  filter: blur(8px);
-  /* Menambahkan efek blur pada gambar latar belakang */
-  z-index: -1;
 }
 
 header h1 {
-  font-size: 3.5em;
+  font-size: 3em;
   font-weight: bold;
   text-transform: uppercase;
-  letter-spacing: 5px;
+  letter-spacing: 3px;
   margin-bottom: 20px;
-  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
-  animation: slideIn 1s ease-in-out;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 header p {
   font-size: 1.5em;
-  margin-bottom: 40px;
-  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.7);
-  animation: fadeIn 1.5s ease-in-out;
+  margin-bottom: 30px;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
 }
 
 .btn-primary {
-  padding: 15px 30px;
+  padding: 12px 25px;
   font-size: 1.2em;
   background-color: #ffffff;
   color: #d92323;
   border: none;
-  border-radius: 30px;
+  border-radius: 5px;
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 2px;
   transition: all 0.3s ease;
-  animation: fadeIn 2s ease-in-out;
+  border-radius: 30px;
 }
 
 .btn-primary:hover {
   background-color: #d92323;
   color: white;
-  transform: scale(1.1);
+  transform: translateY(-5px);
 }
 
-/* Animasi */
-@keyframes slideIn {
+.steps-container {
+  display: none;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  padding: 40px;
+  max-width: 1200px;
+  margin: 40px auto;
+}
+
+.step {
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  aspect-ratio: 4 / 3;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+@keyframes fadeInUp {
   from {
-    transform: translateY(-50px);
     opacity: 0;
+    transform: translateY(20px);
   }
 
   to {
+    opacity: 1;
     transform: translateY(0);
-    opacity: 1;
   }
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
+.step.show {
+  animation: fadeInUp 3.5s ease forwards;
+}
 
-  to {
-    opacity: 1;
-  }
+.step:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.step img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+}
+
+.step h3 {
+  padding: 10px;
+  background-color: #d92323;
+  color: white;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.step p {
+  padding: 10px 20px;
+  font-size: 0.9em;
+  line-height: 1.4;
+  color: #555;
+  text-align: center;
+}
+
+#backButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #d92323;
+  color: white;
+  width: 65px;
+  height: 65px;
+  border: none;
+  border-radius: 50%;
+  font-size: 2em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+#backButton:hover {
+  background-color: #b71c1c;
+}
+
+footer {
+  display: none;
+  text-align: center;
+  padding: 15px;
+  background-color: #343a43;
+  color: white;
+}
+
+footer p {
+  font-size: 1em;
 }
 
 @media (max-width: 768px) {
   header h1 {
     font-size: 2.5em;
-    /* Mengurangi ukuran font pada perangkat kecil */
   }
 
   header p {
     font-size: 1.2em;
-    /* Mengurangi ukuran font pada perangkat kecil */
   }
 
   .btn-primary {
     font-size: 1em;
-    padding: 12px 20px;
+    padding: 10px 20px;
+  }
+
+  .steps-container {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+
+  .step img {
+    height: 60%;
+  }
+
+  .step h3 {
+    font-size: 1em;
+  }
+
+  .step p {
+    font-size: 0.8em;
+  }
+
+  footer {
+    padding: 10px 20px;
   }
 }

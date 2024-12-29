@@ -35,7 +35,7 @@ header {
   font-size: 24px;
   font-weight: bold;
   font-family: 'Wendy One', sans-serif;
- color: #d92323;
+ color: #82211c;
  letter-spacing: 2px;
 }
 nav ul {
@@ -148,15 +148,18 @@ button#openMenu {
 }
 
 .menu-content {
-  padding: 20px;
+  padding: 50px;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 600;
 }
 
 .menu-content h3 {
   margin-top: 0;
+  margin-bottom: 10px;
   font-size: 18px;
   text-transform: uppercase;
   border-bottom: 2px solid #ddd;
-  padding-bottom: 1px;
+  padding-bottom: 0px;
 }
 
 ul {
@@ -168,7 +171,7 @@ ul {
 ul li {
   display: flex;
   justify-content: space-between;
-  padding: 4.2px 0;
+  padding: 3.2px 0;
   border-bottom: 1px solid #ddd;
 }
 .dm {
@@ -176,8 +179,8 @@ ul li {
 }
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 90px;
+  right: 60px;
   font-size: 20px;
   background-color: #c82333;
   border: none;
@@ -708,7 +711,7 @@ footer {
     display: none;
   }
   .navuli {
-    margin-left: -42px;
+    margin-left: -27px;
   }
   .cete {
     display: none;
@@ -808,6 +811,7 @@ footer {
   .bs {
     margin-top: 0px;
     margin-left: -8%;
+    letter-spacing: 2.5px;
   }
   .sb {
     margin-top: 50px;
@@ -833,5 +837,8 @@ footer {
   .email-link {
     color: white;
    text-decoration: none; 
+    }
+    .menu-content {
+      font-size: 15px;
     }
 }

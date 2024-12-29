@@ -137,9 +137,8 @@ ul li {
     color: #212529;
   }
   .foto-container {
-    background-image: url(about_20241228_211537_0000-1.png);
-    object-fit: contain;
-    object-position: center;
-    background-repeat:no-repeat ;
+    background-image: url(about_20241229_201315_0000-1.png);
+    background-size: 100% 100%;
+    margin-top: 7%;
   }
 }

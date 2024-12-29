@@ -51,10 +51,10 @@ button#openMenu {
   left: 0;
   z-index: -1;
 }
-
 .menu-content {
   padding: 20px;
   letter-spacing: 1px;
+  font-weight: bold;
 }
 .menu-content h3 {
   margin-top: 0;
@@ -138,5 +138,8 @@ ul li {
   }
   .foto-container {
     background-image: url(about_20241228_211537_0000-1.png);
+    object-fit: contain;
+    object-position: center;
+    background-repeat:no-repeat ;
   }
 }

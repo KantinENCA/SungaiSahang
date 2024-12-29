@@ -21,19 +21,18 @@ const prices = {
   jus_Alpukat: 5000,
 };
 
+// Search functionality
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document
     .getElementById("searchInput")
     .value.trim()
     .toLowerCase()
     .replace(/\s+/g, "");
-
   const productIDs = Object.keys(prices);
 
   let found = false;
   for (let id of productIDs) {
     const normalizedID = id.toLowerCase().replace(/\s+/g, "");
-
     if (normalizedID === searchTerm) {
       const targetElement = document.getElementById(id);
       targetElement.scrollIntoView({ behavior: "smooth" });
@@ -48,31 +47,24 @@ document.getElementById("searchButton").addEventListener("click", function () {
   }
 });
 
-// Tombol untuk membuka menu
+// Menu modal functionality
 const openMenu = document.getElementById("openMenu");
-
-// Elemen modal dan tombol tutup
 const menuModal = document.getElementById("menuModal");
 const closeMenu = document.getElementById("closeMenu");
 
-// Event Listener untuk membuka menu
 openMenu.addEventListener("click", () => {
-  menuModal.style.display = "flex"; // Tampilkan modal
+  menuModal.style.display = "flex";
 });
 
-// Event Listener untuk menutup menu
 closeMenu.addEventListener("click", () => {
-  menuModal.style.display = "none"; // Sembunyikan modal
+  menuModal.style.display = "none";
 });
 
+// Quantity control functions
 function increment(id) {
   const countElement = document.getElementById(id + "_count");
   let count = parseInt(countElement.textContent, 10);
-
-  if (isNaN(count)) {
-    count = 0;
-  }
-
+  if (isNaN(count)) count = 0;
   count++;
   countElement.textContent = count;
   updateTotal();
@@ -81,11 +73,7 @@ function increment(id) {
 function decrement(id) {
   const countElement = document.getElementById(id + "_count");
   let count = parseInt(countElement.textContent, 10);
-
-  if (isNaN(count)) {
-    count = 0;
-  }
-
+  if (isNaN(count)) count = 0;
   if (count > 0) {
     count--;
     countElement.textContent = count;
@@ -104,6 +92,7 @@ function updateTotal() {
     "Rp " + total.toLocaleString();
 }
 
+// Reset order function
 function resetOrder() {
   const counts = document.querySelectorAll(".count");
   counts.forEach((count) => {
@@ -114,6 +103,7 @@ function resetOrder() {
   document.getElementById("output").innerText = "";
 }
 
+// Submit order function with confirmation modal
 function submitOrder() {
   let orderDetails = "";
   let total = 0;
@@ -153,42 +143,143 @@ function submitOrder() {
     return;
   }
 
-  alert("Pesanan berhasil dibuat! Silakan kirim struk melalui WhatsApp");
+  // Create confirmation modal
+  const confirmationModal = document.createElement("div");
+  confirmationModal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  `;
 
-  if (orderDetails) {
-    const output = document.getElementById("output");
-    const strukContainer = document.createElement("div");
-    const whatsappButton = document.createElement("button");
+  const modalContent = document.createElement("div");
+  modalContent.style.cssText = `
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideIn 0.3s ease-out;
+  `;
 
-    const strukContent = `
+  const orderString = `
+    <h2 style="color: #333; margin-bottom: 20px;">Konfirmasi Pesanan</h2>
+    <div style="text-align: left; margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+      <h3 style="color: #2c3e50; margin-bottom: 10px;">Detail Pesanan:</h3>
+      ${orderDetails.replace(/\n/g, "<br>")}
+      <p style="margin-top: 10px;"><strong>Nama:</strong> ${namaPembeli}</p>
+      <p><strong>Catatan:</strong> ${catatan}</p>
+      <p><strong>Pengantaran:</strong> ${
+        deliveryOption === "makan_di_tempat"
+          ? "Makan di Tempat"
+          : "Anter ke Lobi"
+      }</p>
+      <p style="font-size: 1.2em; color: #2c3e50; margin-top: 10px;"><strong>Total: Rp ${total.toLocaleString()}</strong></p>
+    </div>
+    <p style="margin: 20px 0; font-size: 1.1em; color: #444;">Apakah Anda yakin dengan pesanan ini?</p>
+    <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+      <button id="confirmYes" style="
+        padding: 12px 30px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+      ">Ya</button>
+      <button id="confirmNo" style="
+        padding: 12px 30px;
+        background-color: #dc3545;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1em;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+      ">Tidak</button>
+    </div>
+  `;
+
+  modalContent.innerHTML = orderString;
+  confirmationModal.appendChild(modalContent);
+  document.body.appendChild(confirmationModal);
+
+  // Add hover effects
+  const buttons = modalContent.querySelectorAll("button");
+  buttons.forEach((button) => {
+    button.addEventListener("mouseenter", function () {
+      this.style.transform = "translateY(-2px)";
+      this.style.boxShadow =
+        this.id === "confirmYes"
+          ? "0 4px 8px rgba(40, 167, 69, 0.3)"
+          : "0 4px 8px rgba(220, 53, 69, 0.3)";
+    });
+    button.addEventListener("mouseleave", function () {
+      this.style.transform = "translateY(0)";
+      this.style.boxShadow =
+        this.id === "confirmYes"
+          ? "0 2px 4px rgba(40, 167, 69, 0.2)"
+          : "0 2px 4px rgba(220, 53, 69, 0.2)";
+    });
+  });
+
+  // Handle confirmation actions
+  document.getElementById("confirmYes").addEventListener("click", function () {
+    modalContent.innerHTML = `
+      <div class="loading-container">
+        <div class="loading-spinner"></div>
+        <div class="loading-text">Pesanan Anda sedang dibuat...</div>
+      </div>
+    `;
+
+    setTimeout(() => {
+      alert("Pesanan berhasil dibuat! Silakan kirim struk melalui WhatsApp");
+      confirmationModal.remove();
+
+      const strukContent = `
 Struk Pesanan
 ${orderDetails}
 Nama Pembeli: ${namaPembeli}
 Catatan: ${catatan}
 Pengantaran: ${
-      deliveryOption === "makan_di_tempat" ? "Makan di Tempat" : "Anter ke Lobi"
-    }
-Total: Rp ${total.toLocaleString()}`;
-
-    // Membuat konten HTML untuk ditampilkan
-    const strukHTML = `  
-      <h3>Struk Pesanan</h3>
-      ${orderDetails.replace(/\n/g, "<br>")}
-      <p><strong>Nama Pembeli:</strong> ${namaPembeli}</p>
-      <strong>Catatan:</strong> ${catatan}<br>
-      <strong>Pengantaran:</strong> ${
         deliveryOption === "makan_di_tempat"
           ? "Makan di Tempat"
           : "Anter ke Lobi"
-      }<br>
-      <strong>Total: Rp ${total.toLocaleString()}</strong>`;
+      }
+Total: Rp ${total.toLocaleString()}`;
 
-    strukContainer.innerHTML = strukHTML;
+      const output = document.getElementById("output");
+      const strukContainer = document.createElement("div");
+      const whatsappButton = document.createElement("button");
 
-    // Membuat tombol WhatsApp
-    whatsappButton.innerHTML =
-      '<i class="fab fa-whatsapp"></i> Kirim via WhatsApp';
-    whatsappButton.style.cssText = `
+      const strukHTML = `  
+        <h3>Struk Pesanan</h3>
+        ${orderDetails.replace(/\n/g, "<br>")}
+        <p><strong>Nama Pembeli:</strong> ${namaPembeli}</p>
+        <strong>Catatan:</strong> ${catatan}<br>
+        <strong>Pengantaran:</strong> ${
+          deliveryOption === "makan_di_tempat"
+            ? "Makan di Tempat"
+            : "Anter ke Lobi"
+        }<br>
+        <strong>Total: Rp ${total.toLocaleString()}</strong>`;
+
+      strukContainer.innerHTML = strukHTML;
+
+      whatsappButton.innerHTML =
+        '<i class="fab fa-whatsapp"></i> Kirim via WhatsApp';
+      whatsappButton.style.cssText = `
         padding: 8px 16px;
         margin: 10px 0;
         cursor: pointer;
@@ -201,54 +292,53 @@ Total: Rp ${total.toLocaleString()}`;
         align-items: center;
         gap: 8px;
         margin-bottom: 10px;
-    `;
+      `;
 
-    whatsappButton.onclick = function () {
-      // Nomor WhatsApp tujuan
-      const phoneNumber = "6288286291706";
+      whatsappButton.onclick = function () {
+        const phoneNumber = "6288286291706";
+        const encodedText = encodeURIComponent(strukContent);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+        window.open(whatsappUrl, "_blank");
+      };
 
-      // Encode pesan untuk URL
-      const encodedText = encodeURIComponent(strukContent);
+      output.style.display = "block";
+      output.innerHTML = "";
+      output.appendChild(strukContainer);
+      output.appendChild(whatsappButton);
+    }, 3000);
+  });
 
-      // Buat URL WhatsApp
-      const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
-
-      // Buka WhatsApp di tab baru
-      window.open(whatsappUrl, "_blank");
-    };
-
-    output.style.display = "block";
-    output.innerHTML = "";
-    output.appendChild(strukContainer);
-    output.appendChild(whatsappButton);
-  }
+  document.getElementById("confirmNo").addEventListener("click", function () {
+    confirmationModal.remove();
+  });
 }
 
-document.getElementById("resetButton").addEventListener("click", function (event) {
-  event.preventDefault();
+// Reset button confirmation
+document
+  .getElementById("resetButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
 
-  // Periksa apakah ada pesanan
-  let isOrderEmpty = true;
-  for (let item in prices) {
-    const quantity =
-      parseInt(document.getElementById(item + "_count").textContent, 10) || 0;
-    if (quantity > 0) {
-      isOrderEmpty = false;
-      break;
+    let isOrderEmpty = true;
+    for (let item in prices) {
+      const quantity =
+        parseInt(document.getElementById(item + "_count").textContent, 10) || 0;
+      if (quantity > 0) {
+        isOrderEmpty = false;
+        break;
+      }
     }
-  }
 
-  if (isOrderEmpty) {
-    alert("Tidak dapat mereset! Pilih menu terlebih dahulu!");
-    return;
-  }
+    if (isOrderEmpty) {
+      alert("Tidak dapat mereset! Pilih menu terlebih dahulu!");
+      return;
+    }
 
-  // Buat elemen modal jika belum ada
-  let modal = document.getElementById("confirmationModal");
-  if (!modal) {
-    modal = document.createElement("div");
-    modal.id = "confirmationModal";
-    modal.style.cssText = `
+    let modal = document.getElementById("confirmationModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "confirmationModal";
+      modal.style.cssText = `
       display: flex;
       position: fixed;
       top: 0;
@@ -260,7 +350,7 @@ document.getElementById("resetButton").addEventListener("click", function (event
       align-items: center;
       z-index: 1000;
     `;
-    modal.innerHTML = `
+      modal.innerHTML = `
       <div style="
         background: white;
         padding: 20px;
@@ -287,40 +377,43 @@ document.getElementById("resetButton").addEventListener("click", function (event
           cursor: pointer;">Tidak</button>
       </div>
     `;
-    document.body.appendChild(modal);
-  }
-
-  modal.style.display = "flex";
-
-  document.getElementById("confirmYes").addEventListener("click", function () {
-    resetOrder();
-    modal.style.display = "none";
-  });
-
-  document.getElementById("confirmNo").addEventListener("click", function () {
-    modal.style.display = "none";
-  });
-});
-
-
-document.addEventListener("DOMContentLoaded", function () {
-  const section = document.querySelector(".best-saller");
-  const content = section.querySelector(".content");
-  let lastScrollTop = 0;
-
-  window.addEventListener("scroll", function () {
-    const currentScroll =
-      window.pageYOffset || document.documentElement.scrollTop;
-
-    const sectionTop = section.offsetTop;
-    const sectionHeight = section.offsetHeight;
-
-    if (currentScroll > sectionTop - window.innerHeight / 2) {
-      content.classList.add("visible");
-    } else {
-      content.classList.remove("visible");
+      document.body.appendChild(modal);
     }
 
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    modal.style.display = "flex";
+
+    document
+      .getElementById("confirmYes")
+      .addEventListener("click", function () {
+        resetOrder();
+        modal.style.display = "none";
+      });
+
+    document.getElementById("confirmNo").addEventListener("click", function () {
+      modal.style.display = "none";
+    });
   });
+
+// Best seller animation
+document.addEventListener("DOMContentLoaded", function () {
+  const section = document.querySelector(".best-seller");
+  if (section) {
+    const content = section.querySelector(".content");
+    let lastScrollTop = 0;
+
+    window.addEventListener("scroll", function () {
+      const currentScroll =
+        window.pageYOffset || document.documentElement.scrollTop;
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (currentScroll > sectionTop - window.innerHeight / 2) {
+        content?.classList.add("visible");
+      } else {
+        content?.classList.remove("visible");
+      }
+
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
+    });
+  }
 });

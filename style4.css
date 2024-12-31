@@ -21,6 +21,9 @@ header {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  font-family: 'Wendy One', sans-serif;
+  font-size: 1em;
+  letter-spacing: 1.5px;
 }
 
 header h1 {
@@ -50,6 +53,8 @@ header p {
   letter-spacing: 2px;
   transition: all 0.3s ease;
   border-radius: 30px;
+  font-family: "Patrick Hand", cursive;
+  font-weight: 800;
 }
 
 .btn-primary:hover {
@@ -198,11 +203,11 @@ footer p {
   }
 
   .step h3 {
-    font-size: 1em;
+    font-size: 0.8em;
   }
 
   .step p {
-    font-size: 0.8em;
+    font-size: 0.6em;
   }
 
   footer {

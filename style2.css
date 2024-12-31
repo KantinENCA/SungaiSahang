@@ -1,9 +1,8 @@
 /* Reset dan variabel warna */
 :root {
-  --primary-color: #d92323;
   --primary-dark: #b71c1c;
   --background-light: #f8f9fa;
-  --text-dark: #212529;
+  --text-dark: #82211c;
   --text-light: #ffffff;
   --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --transition: all 0.3s ease;
@@ -26,8 +25,6 @@ header {
   display: flex;
   align-items: center;
   padding: 1rem 3rem;
-  background-color: var(--text-light);
-  box-shadow: var(--shadow);
   position: fixed;
   width: 100%;
   top: 0;
@@ -35,10 +32,11 @@ header {
 }
 
 .logo {
+  color: #82211c;
   font-family: 'Wendy One', sans-serif;
   font-size: 1.5rem;
-  color: var(--primary-color);
   letter-spacing: 2px;
+  color: var(--primary-color);
   transition: var(--transition);
 }
 
@@ -69,7 +67,6 @@ header {
 
 #backButton:hover {
   background-color: var(--primary-dark);
-  transform: scale(1.1);
 }
 
 /* Title Styling */
@@ -120,7 +117,7 @@ header {
 }
 
 .carousel-controls button {
-  background-color: var(--primary-color);
+  background-color: transparent;
   border: none;
   color: var(--text-light);
   font-size: 1.2rem;
@@ -136,7 +133,6 @@ header {
 }
 
 .carousel-controls button:hover {
-  background-color: var(--primary-dark);
   transform: scale(1.1);
 }
 

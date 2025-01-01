@@ -1,889 +1,386 @@
+:root {
+  --primary-dark: #b71c1c;
+  --background-light: #f8f9fa;
+  --text-dark: #82211c;
+  --text-light: #ffffff;
+  --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --transition: all 0.3s ease;
+}
 
-body {
-  font-family: Arial, sans-serif;
+* {
   margin: 0;
   padding: 0;
-  color: #212529;
-}
-/* bootstrap */
-.navbar {
-  background-color: #343a40 !important;
+  box-sizing: border-box;
 }
 
-.navbar .nav-link {
-  color: #212529 !important;
+body {
+  color: var(--text-dark);
+  font-family: 'Patrick Hand', sans-serif;
+  background-color: var(--background-light);
+  background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Dokumen\ \(A4\)\).jpg);
+  background-size: 100% 100%;
 }
-.navbar .nav-link:hover {
-  color: #b71c1c !important;
-}
-.btn-danger {
-  background-color: #c82333;
-  border: none;
-  transition: background-color 0.3s ease;
-}
-.btn-danger:hover {
-  background-color: #b71c1c;
-}
+
 header {
   display: flex;
   align-items: center;
-  padding: 15px 50px;
-  background-color: #fff;
-  box-shadow: 0 5px 10px #b71c1c(0, 0, 0, 0.2);
-}
-.logo {
-  margin-left: 10px;
-  font-size: 24px;
-  font-weight: bold;
-  font-family: 'Wendy One', sans-serif;
- color: #82211c;
- letter-spacing: 2px;
- transition: all 0.3s ease;
-}
-.logo:hover {
-  transform: scale(1.05);
-}
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 24px;
-  padding: 0;
-  margin: 0;
-}
-.navuli {
-  margin-left: 20%;
-}
-nav ul li {
-  display: inline;
-}
-
-nav ul li a {
-  margin-left: 4px;
-  text-decoration: none;
-  color: #333;
-  font-size: 16px;
-}
-nav ul li a:hover {
-  color: #b71c1c;
-}
-.search-container {
-  margin-left: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 14px;
-}
-
-input[type="text"] {
-  padding: 10px;
-  font-size: 15px;
-  width: 300px;
-  border-radius: 10px;
-  margin-left: 10px;
-  border: 1.6px solid #c82333;
-}
-#searchButton {
-  background-color: #c82333;
-  border-radius: 6px;
-  width: 80px;
-}
-button {
-  padding: 10px 20px;
-  font-size: 16px;
-  cursor: pointer;
-}
-button#openMenu {
+  padding: 1rem 3rem;
   position: fixed;
-  bottom: 100px;
-  right: 20px;
-  background-color: #d92323;
-  color: white;
-  padding: 0;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 65px;
-  height: 65px;
-  text-decoration: none;
-  z-index: 2;
-}
-
-.gmaps {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #d92323;
-  color: white;
-  padding: 0;
-  border: none;
-  font-size: 2em;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 65px;
-  height: 65px;
-  text-decoration: none;
-  z-index: 1;
-}
-.gmaps:hover {
-  background-color: #b71c1c;
-}
-
-.loading-bar {
   width: 100%;
-  height: 12px; 
-  background: #e0e0e0;
-  border-radius: 6px;
-  overflow: hidden;
-  margin-bottom: 15px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.progress {
-  height: 100%;
-  width: 0; 
-  background: linear-gradient(to right, #0084ff, #0056b3);
-  border-radius: 6px; 
-  animation: loading 3s forwards;
-}
-
-@keyframes loading {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 100%;
-  }
-}
-
-.loading-text {
-  font-size: 18px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-/* Modal Styles */
-#menuModal {
-  height: 800px;
-  display: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 90%;
-  max-width: 550px;
-  color: #212529;
-  background: #fff;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  border-radius: 10px;
-  overflow: hidden;
+  top: 0;
   z-index: 1000;
 }
 
-.menu-content {
-  padding: 50px;
-  font-family: "Patrick Hand", cursive;
-  font-weight: 600;
+.logo {
+  color: #82211c;
+  font-family: 'Wendy One', sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 2px;
+  color: var(--primary-color);
+  transition: var(--transition);
 }
 
-.menu-content h3 {
-  margin-top: 0;
-  margin-bottom: 10px;
-  font-size: 16px;
-  text-transform: uppercase;
-  border-bottom: 2px solid #ddd;
-  padding-bottom: 0px;
+.logo:hover {
+  transform: scale(1.05);
 }
 
-ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul li {
-  display: flex;
-  justify-content: space-between;
-  padding: 2px 0;
-  border-bottom: 1px solid #ddd;
-}
-.dm {
-  text-align: center;
-}
-.close-btn {
-  position: absolute;
+#backButton {
+  position: fixed;
   top: 90px;
-  right: 60px;
-  font-size: 20px;
-  background-color: #c82333;
+  left: 20px;
+  background-color: var(--primary-color);
+  color: var(--text-light);
   border: none;
-  cursor: pointer;
-}
-.close-btn:hover {
-  background-color: #b71c1c;
-}
-.dots {
-  color: transparent;
-}
-.dotd {
-  color: transparent;
-}
-#menuModal.active {
-  display: block;
-}
-.menu-item {
-  margin: 0 140px;
-}
-main {
-  padding: 1em;
-}
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-.welcom {
-  background-image: url(profil.jpg);
-  background-size: 100% 100%;
-  display: flex;
-  align-items: center;
-  height: 800px;
-}
-
-.welcom-text h1 {
-  font-weight: 600;
-  font-style: normal;
-  width: 250%;
-  font-size: 3em;
-  color: chocolate;
-  margin-left: 35%;
-  letter-spacing: 4px;
-  line-height: 0.8;
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out forwards;
-}
-
-.welcom-image img {
-  opacity: 0;
-  animation: fadeIn 2s ease-in-out 0.5s forwards;
-}
-
-.welcom-image {
-  margin-left: 18%;
-}
-
-
-
-html {
-  scroll-behavior: smooth;
-}
-
-.makanan,
-.minuman {
-  color: chocolate;
-  margin-left: 148px;
-  margin-bottom: 15px;
-  margin-top: 200px;
-  font-size: 38px;
-  letter-spacing: 4px;
-}
-.minuman {
-  margin-top: 60px;
-}
-@media screen and (max-width: 768px) {
-  .makanan {
-    margin-left: 20px;
-    margin-bottom: 10px;
-    margin-top: 60px;
-  }
-}
-.card-group {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  justify-content: center;
-  margin-bottom: 2em;
-}
-.card-miayam,
-.card-ayamgeprek,
-.card-markari,
-.card-mietumis,
-.card-migoreng,
-.card-nasigoreng,
-.card-sosisbakso,
-.card-esjeruk,
-.card-milo,
-.card-tehsisri,
-.card-teajus,
-.card-popice,
-.card-nutrisari,
-.card-cappucino,
-.card-bengbeng,
-.card-jusmangga,
-.card-jusbuahnaga,
-.card-jusapel,
-.card-juspir,
-.card-jusalpukat {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  flex: 1 1 calc(25% - 1em);
-  max-width: calc(25% - 1em);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 350px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 1em;
-  position: relative;
-  border-radius: 8%;
-}
-
-.card-group div:hover {
-  transition: transform 0.5s, border-color 0.5s;
-  transform: scale(1.03);
-  border-color: #d92323;
-}
-.card-miayam {
-  background-image: url(mie\ ayam.png);
-}
-.card-markari {
-  background-image: url(martabak\ kari.png);
-}
-.card-migoreng {
-  background-image: url(mie\ goreng\ special.png);
-}
-.card-nasigoreng {
-  background-image: url(nasi\ goreng.png);
-}
-.card-mietumis {
-  background-image: url(mie\ tumis.png);
-}
-.card-ayamgeprek {
-  background-image: url(nasi\ ayam\ geprek.png);
-}
-.card-sosisbakso {
-  background-image: url(aneka\ sosis.png);
-}
-
-.card-esjeruk {
-  background-image: url(jus\ jeruk.png);
-}
-.card-cappucino {
-  background-image: url(good\ day.png);
-}
-.card-bengbeng {
-  background-image: url(beng\ beng.png);
-}
-.card-popice {
-  background-image: url(pop\ ice.png);
-}
-.card-nutrisari {
-  background-image: url(nutrisari.png);
-}
-.card-milo {
-  background-image: url(teh\ tarik.png);
-}
-.card-tehsisri {
-  background-image: url(teh\ sisri.png);
-}
-.card-teajus {
-  background-image: url(teajus.png);
-}
-.card-jusmangga {
-  background-image: url(jus\ mangga.png);
-}
-.card-jusbuahnaga {
-  background-image: url(jus\ buah\ naga.png);
-}
-.card-jusapel {
-  background-image: url(jus\ apel.png);
-}
-.card-jusalpukat {
-  background-image: url(jus\ alpukat.png);
-}
-.best-saller {
-  background-image: url(welcome\ To\ Manajemen\ Informatika.jpg);
-  background-size: cover;
-  height: 700px;
-  margin: 0;
-  padding: 0;
-  margin-bottom: -75px;
-}
-.content {
-  padding-top: 12%;
-  padding-left: 10%;
-  display: flex;
-  gap: 8%;
-}
-.text {
-  margin-top: -4%;
-  max-width: 800px;
-  text-align: justify;
-}
-.pot {
-  width: 400px;
-  height: 400px;
   border-radius: 50%;
-  animation: rotate 5s linear infinite;
-}
-@keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-.bs {
-  font-size: 40px;
-  text-decoration: double;
-  font-family: "Wendy One", sans-serif;
-  color: #f8f9fa;
-  letter-spacing: 4px;
-  margin-bottom: -10px;
-}
-.sb {
-  font-family: "Patrick Hand", cursive;
-  color: #f8f9fa;
-  font-weight: 600;
-  line-height: 2;
-  font-size: 22px;
-}
-.button-container {
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-}
-.bgj {
-  background-image: url(food.jpg);
-  margin-top: -175px !important;
-  background-size: 100% 100%;
-}
-.jumbotron {
-  margin-bottom: 20px;
-  margin-top: 1px;
-}
-.bgv {
-  background-image: url(beverages.jpg);
-  background-size: 100% 100%;
-}
-button {
-  background-color: #4caf50;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  padding: 0.5em;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
   cursor: pointer;
-}
-
-button:hover {
-  background-color: #45a049;
-}
-.count {
-  margin-left: 0.5em;
-  font-weight: bold;
-  color: #212529;
-}
-.price-and-buttons {
+  transition: var(--transition);
+  z-index: 100;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  margin-top: 20px;
-  padding: 10px 20px;
-  background-color: none;
-}
-.total-price p {
-  margin: 0;
-  font-size: 18px;
-  font-weight: bold;
-  margin-left: 130px;
-  color: #212529;
-}
-.red {
-  color: #d92323;
-  font-style: italic;
-  opacity: 85%;
-}
-#inputText {
-  margin-top: 1px;
-  height: 25px;
-  width: 200px;
-  border: 1px solid chocolate;
-  border-radius: 4px;
-}
-.buttons-container {
-  display: flex;
-  gap: 10px;
-  margin-right: 54.5%;
-}
-.reset-order,
-.order-now {
-  color: #f8f9fa;
-  background-color: #d92323;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
+  justify-content: center;
+  box-shadow: var(--shadow);
 }
 
-.reset-order:hover {
-  background-color: #b71c1c;
+#backButton:hover {
+  background-color: var(--primary-dark);
 }
 
-.order-now:hover {
-  background-color: #b71c1c;
-}
-footer {
-  background-color: #343a43;
-  color: white;
-  font-family: Arial, sans-serif;
-  padding: 20px 0;
-}
-
-.footer-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-.footer-about,
-.footer-links {
-  flex: 1 1 calc(33.33% - 20px);
-  margin: 10px;
-}
-
-.footer-about h2,
-.footer-links h3 {
-  color: #f9a825;
-  margin-bottom: 10px;
-}
-
-.footer-about p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-links ul li {
-  margin: 5px 0;
-}
-
-.footer-links ul li a {
-  color: #a8a8a8;
-  text-decoration: none;
-  font-size: 14px;
-}
-
-.footer-links ul li a:hover {
-  color: #f9a825;
+.judul {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #82211c;
+  font-family: 'Wendy One', sans-serif;
+  letter-spacing: 8px;
+  margin: 6rem 0 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  animation: fadeInDown 1s ease;
   text-decoration: underline;
 }
 
-.footer-bottom {
-  text-align: center;
-  margin-top: 20px;
-  border-top: 1px solid #444;
-  padding-top: 10px;
-  font-size: 12px;
-  color: #a8a8a8;
+.carousel {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  margin: 2rem auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  animation: fadeIn 1s ease;
 }
 
-.pesan {
-  text-decoration: none;
-  color: white;
-}
-.catatan-fieldset {
-  border: 2px solid #e67e22;
-  border-radius: 8px;
-  padding: 15px;
-  margin: 20px auto;
-  background-color: #fef9e7;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  width: 60%;
-  max-width: 600px;
-  text-align: left;
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Pre:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Roboto+Slab:wght@100..900&display=swap");
-.catatan-fieldset legend {
-  letter-spacing: 2px;
-  font-family: mont;
-  font-size: 18px;
-  font-weight: bold;
-  color: #e67e22;
-  padding: 0 10px;
-  text-transform: uppercase;
-}
-
-.catatan-fieldset .catatan {
-  width: 96%;
-  min-height: 100px;
-  font-size: 14px;
-  padding: 10px;
-  margin-top: 10px;
-  border: 2px solid #f39c12;
-  border-radius: 5px;
-  background-color: #fff;
-  color: #34495e;
-  resize: vertical;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.catatan-fieldset .catatan:focus {
-  border-color: #e67e22;
-  box-shadow: 0 0 5px rgba(230, 126, 34, 0.5);
-  outline: none;
-}
-#output {
-  background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Banner\ Sedang\ \(AS\)\ \(Horizontal\)\).jpg);
-  background-size: 100% 100%;
-  display: none;
-  margin: 0;
-  padding: 15px;
-  border-radius: 5px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-#output h3 {
-  color: #f39c12;
-  margin-bottom: 16px;
-  font-style: italic;
-  font-weight: bold;
-}
-
-#output strong {
-  display: block;
-  margin-top: 10px;
-  font-size: 16px;
-}
-
-#output br {
-  line-height: 1.5;
-}
-.cod {
-  background-color: #fff;
-  padding: 20px;
-  margin: 20px;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 590px;
-  margin: 0 auto;
-  border: 2px solid #f39c12;
-}
-
-.cod label {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 8px;
-  display: block;
-}
-
-.cod select {
+.carousel-images img {
   width: 100%;
-  padding: 10px;
-  font-size: 14px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  outline: none;
-  transition: border-color 0.3s ease;
+  height: auto;
+  object-fit: cover;
+  flex-shrink: 0;
 }
 
-.cod select:focus {
-  border-color: #e67e22;
+.carousel-controls {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  padding: 0 1rem;
 }
 
-.cod option {
-  padding: 10px;
+.carousel-controls button {
+  background-color: transparent;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: var(--shadow);
 }
-.struk {
-  font-style: italic;
-  opacity: 80%;
-  color: #d92323;
+
+.carousel-controls button:hover {
+  transform: scale(1.1);
 }
-.namaminumn {
-  color: #212529;
-  font-family: "Patrick Hand", cursive;
-  font-weight: 800;
-  letter-spacing: 1.8px;
+
+.carousel-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
 }
-.ctarr {
-  background-image: url(catatan\ pembeli.jpg);
-  background-size: 100% 100%;
-  margin-top: -40px;
+
+.carousel-dots button {
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: var(--transition);
 }
-.phone-number {
+
+.carousel-dots button.active {
+  background-color: var(--text-light);
+  transform: scale(1.2);
+}
+iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px 10px 0 0;
+}
+
+.card {
+    background: white;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    width: 80%;
+    max-width: 800px;
+    margin: 2rem auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    height: 360px;
+    overflow: hidden;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+}
+
+
+.play-button {
+    background-color: rgba(0, 123, 255, 0.7);
     color: white;
-    text-decoration: none;
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    z-index: 10;
+    transition: background-color 0.3s ease;
 }
 
-.email-link {
-    color: white;
-    text-decoration: none;
+.play-button:hover {
+    background-color: rgba(0, 123, 255, 1);
 }
 
-/* Mode HP */
-@media screen and (max-width: 768px) {
-  .search-container {
-    display: none;
-  }
-  .navuli {
-    margin-left: -27px;
-  }
-  .cete {
-    display: none;
-  }
-  .my-svg {
-    display: none;
-  }
-  .logo {
-    margin-left: -35px;
-    white-space: nowrap;
-  }
-  .price-and-buttons {
-    gap: 20px;
-  }
-  .total-price p {
-    margin-left: 4px;
+.slogan-container {
+   margin: 16px 10px;
+    text-align: left;
+    font-size: 18px;
+    font-family: 'Roboto', sans-serif;
     color: #212529;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.date-container {
+   margin: 0 10px;
+    text-align: left;
+    font-size: 16px;
+    color: #555;
+    font-family: 'Roboto', sans-serif;
+}
+
+.text-container {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+    padding: 10px;
+}
+
+.text-box {
+    width: 30%; 
+    padding: 8px;
+    font-size: 14px; 
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    margin-right: 8px; 
+}
+
+
+.text-red {
+ background-color: red;
+ font-family: 'Roboto', sans-serif;
+}
+
+.text-blue {
+  background-color: blue;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  .footer-content {
-    flex-direction: column;
-    align-items: flex-start;
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    background-image: url(mobile.jpg);
+    background-size: 100% 100%;
+  }
+  .carousel {
+    width: 90%;
+    margin-top: 1rem;
   }
 
-  .footer-links,
-  .footer-social {
-    margin-top: 10px;
+  .judul {
+    font-size: 2rem;
+    letter-spacing: 4px;
   }
-  .footer-links {
-    margin-left: 40px;
+
+  header {
+    padding: 1rem;
   }
-  .footer-social {
-    margin-left: 40px;
+
+  #backButton {
+    top: 80px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
   }
-  .footer-logo {
-    margin-bottom: 10px;
-  }
-  .catatan-fieldset {
+
+  .card {
     width: 90%;
+    max-width: none;
+    margin: 2rem auto;
   }
-  .catatan-fieldset .catatan {
-    width: 90%;
+
+  .video-container {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    background-color: #000;
   }
-  .cat {
-    margin-top: 1px;
+
+  .video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
-  .jumbotron {
-    margin-top: -35px;
+
+  .play-button {
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
   }
-  .welcom {
-    background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Kisah\ Anda\)11.jpg);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+
+  .slogan-container,
+  .date-container {
+    margin: 10px;
+    font-size: 14px;
   }
-  .welcom-text {
-    width: 130px;
-    padding: 0;
+
+  .text-container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 2px;
+    flex-wrap: wrap;
   }
-  .welcom-image {
-    display: none;
+
+  .text-box {
+    width: auto;
+    padding: 8px;
+    margin-bottom: 8px;
+    font-size: 14px;
   }
-  .card-miayam,
-  .card-ayamgeprek,
-  .card-markari,
-  .card-mietumis,
-  .card-migoreng,
-  .card-nasigoreng,
-  .card-sosisbakso,
-  .card-esjeruk,
-  .card-milo,
-  .card-tehsisri,
-  .card-teajus,
-  .card-popice,
-  .card-nutrisari,
-  .card-cappucino,
-  .card-bengbeng,
-  .card-jusmangga,
-  .card-jusbuahnaga,
-  .card-jusapel,
-  .card-juspir,
-  .card-jusalpukat {
-    height: 100px;
-  }
-  .namaminumn {
-    display: none;
-  }
-  .card-group {
-    gap: 1em;
-  }
-  .content {
-    padding-left: 6%;
-  }
-  .pot {
-    width: 175px;
-    height: 175px;
-    margin-top: -10px;
-  }
-  .bs {
-    margin-top: 0px;
-    margin-left: -8%;
-    letter-spacing: 2.5px;
-  }
-  .sb {
-    margin-top: 50px;
-    margin-left: -120%;
-    max-width: 350px;
-    line-height: 1.5;
-    font-size: 20px;
-  }
-  .minuman {
-    margin-top:50px;
-    margin-left: 10px;
-  }
-  .dots {
-    display: none;
-  }
-  .dotd {
-    color: transparent;
-  }
-  .phone-number {
+  
+  .text-red {
+    background-color: red;
     color: white;
-    text-decoration: none;
-    }
-  .email-link {
+  }
+
+  .text-blue {
+    background-color: blue;
     color: white;
-   text-decoration: none; 
-    }
-    .menu-content {
-      font-size: 15px;
-    }
-    .button-container {
-      align-items: center;
-      left: 20%;
-      height: 30px;
+  }
+}
+
+
+@media (min-width: 1024px) {
+    .text-container {
+        width: 40%;
     }
 }

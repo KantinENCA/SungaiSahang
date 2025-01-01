@@ -17,7 +17,7 @@ body {
   color: var(--text-dark);
   font-family: 'Patrick Hand', sans-serif;
   background-color: var(--background-light);
-  background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Presentasi\)\ \(1\).jpg);
+  background-image: url(welcome\ To\ Manajemen\ Informatika\ \(Dokumen\ \(A4\)\).jpg);
   background-size: 100% 100%;
 }
 
@@ -156,14 +156,6 @@ header {
   background-color: var(--text-light);
   transform: scale(1.2);
 }
-
-.bgja {
-  min-height: 100vh;
-  padding: 1rem;
-  background-position: center;
-  background-size: cover;
-}
-
 iframe {
     position: absolute;
     top: 0;
@@ -295,6 +287,10 @@ video {
 }
 
 @media screen and (max-width: 768px) {
+  body {
+    background-image: url(mobile.jpg);
+    background-size: 100% 100%;
+  }
   .carousel {
     width: 90%;
     margin-top: 1rem;
@@ -304,7 +300,6 @@ video {
   .judul {
     font-size: 2rem;
     letter-spacing: 4px;
-    margin: 5rem 0 1rem;
   }
 
   header {
@@ -316,12 +311,6 @@ video {
     width: 35px;
     height: 35px;
     font-size: 1.2rem;
-  }
-
-  .bgja {
-    background-image: url(revisi.jpg);
-    height: auto;
-    min-height: 100vh;
   }
 
   .card {

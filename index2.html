@@ -146,15 +146,15 @@
         playButton.addEventListener("click", function () {
             if (video.paused) {
                 video.play();
-                playButton.textContent = "❚❚"; // Ubah teks tombol menjadi Pause
+                playButton.textContent = "❚❚"; 
             } else {
                 video.pause();
-                playButton.textContent = "▶"; // Ubah teks tombol menjadi Play
+                playButton.textContent = "▶";
             }
         });
 
         video.addEventListener("ended", function () {
-            playButton.textContent = "▶"; // Ubah teks tombol kembali ke Play setelah video selesai
+            playButton.textContent = "▶";
         });
     </script>
 </body>

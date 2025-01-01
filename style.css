@@ -881,4 +881,9 @@ footer {
     .menu-content {
       font-size: 15px;
     }
+    .button-container {
+      align-items: center;
+      left: 20%;
+      height: 30px;
+    }
 }

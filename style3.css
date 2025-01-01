@@ -24,7 +24,9 @@ button#openMenu {
   text-decoration: none;
   z-index: 2;
 }
-/* Modal Styles */
+#openMenu:hover {
+   background-color: var(--primary-dark);
+}
 #menuModal {
   display: none;
   position: fixed;
@@ -41,11 +43,11 @@ button#openMenu {
 }
 .foto-container {
   background-image: url(About\ Us_20241218_222832_0000-1.png);
-  background-size: cover;
-  background-position: center;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
+  margin-top: 4%;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   position: fixed;
   top: 0;
   left: 0;
@@ -55,6 +57,7 @@ button#openMenu {
   padding: 20px;
   letter-spacing: 1px;
   font-weight: bold;
+  color: #212529;
 }
 .menu-content h3 {
   margin-top: 0;
@@ -78,8 +81,9 @@ ul li {
   position: absolute;
   color: #f8f9fa;
   top: 10px;
-  right: 10px;
+  right: 18px;
   font-size: 20px;
+  padding: 6px 12px;
   background-color: #c82333;
   border: none;
   cursor: pointer;
@@ -124,7 +128,6 @@ ul li {
   background-color: #b71c1c;
 }
 
-/* Mode HP */
 @media screen and (max-width: 768px) {
   .logo {
     margin-left: -35px;

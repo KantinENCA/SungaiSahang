@@ -10,13 +10,15 @@
     <link rel="stylesheet" href="style3.css">
     <link rel="icon" href="logo_kantin_enca-removebg-preview.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Wendy+One&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@400;600&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body>
     <header>
         <div class="logo">Kantin ENCA</div>
     </header>
-    <div class="bgfl">
         <div class="bgja">
 
             <h1 class="judul">GALLERY</h1>
@@ -44,8 +46,48 @@
                 </div>
             </div>
 
+            <div class="card">
+                <div class="video-container">
+                    <video id="myVideo">
+                        <source src="Video WhatsApp 2025-01-01 pukul 23.59.46_0fd13b23.mp4" type="video/mp4">
+                        Browser Anda tidak mendukung video tag.
+                    </video>
+                    <button class="play-button" id="playButton">▶</button>
+                </div>
+                <div class="slogan-container">
+                    Slogan Kantin ENCA
+                </div>
+                <div class="date-container">
+                    31 Desember 2024
+                </div>
+                <div class="text-container">
+                    <div class="text-box text-red">Video</div>
+                    <div class="text-box text-blue">Avengers</div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/9ULAb0j5Xww?si=rpddmb4mpmCtWs3u"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="slogan-container">
+                    Dokumenter Kelompok
+                </div>
+                <div class="date-container">
+                    1 Januari 2025
+                </div>
+                <div class="text-container">
+                    <div class="text-box text-red">Youtube</div>
+                    <div class="text-box text-blue">Avengers</div>
+                </div>
+            </div>
+
+
         </div>
-    </div>
+
     <script>
         document.getElementById("backButton").onclick = function () {
             window.location.href = "index.html";
@@ -96,6 +138,23 @@
 
         document.querySelector('.carousel').addEventListener('mouseout', () => {
             autoSlide = setInterval(nextSlide, slideInterval);
+        });
+
+        const video = document.getElementById("myVideo");
+        const playButton = document.getElementById("playButton");
+
+        playButton.addEventListener("click", function () {
+            if (video.paused) {
+                video.play();
+                playButton.textContent = "❚❚"; // Ubah teks tombol menjadi Pause
+            } else {
+                video.pause();
+                playButton.textContent = "▶"; // Ubah teks tombol menjadi Play
+            }
+        });
+
+        video.addEventListener("ended", function () {
+            playButton.textContent = "▶"; // Ubah teks tombol kembali ke Play setelah video selesai
         });
     </script>
 </body>

@@ -18,7 +18,7 @@
     </header>
     <div class="bgfl">
         <div class="bgja">
-            
+
             <h1 class="judul">GALLERY</h1>
 
             <button id="backButton">
@@ -47,57 +47,56 @@
         </div>
     </div>
     <script>
-    document.getElementById('backButton').addEventListener('click', () => {
-        window.location.href = 'index.html';
-    });
-      
-          const carouselImages = document.querySelector('.carousel-images');
-            const dots = document.querySelectorAll('.carousel-dots button');
-            const prevButton = document.getElementById('prev');
-            const nextButton = document.getElementById('next');
+        document.getElementById("backButton").onclick = function () {
+            window.location.href = "index.html";
+        };
 
-            let currentIndex = 0;
-            const totalSlides = dots.length;
-            const slideInterval = 3000; // 3 seconds
+        const carouselImages = document.querySelector('.carousel-images');
+        const dots = document.querySelectorAll('.carousel-dots button');
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
 
-            function updateCarousel() {
-                const offset = -currentIndex * 100;
-                carouselImages.style.transform = `translateX(${offset}%)`;
-
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                });
-            }
-
-            function goToSlide(index) {
-                currentIndex = (index + totalSlides) % totalSlides;
-                updateCarousel();
-            }
-
-            function nextSlide() {
-                goToSlide(currentIndex + 1);
-            }
-
-            function prevSlide() {
-                goToSlide(currentIndex - 1);
-            }
+        let currentIndex = 0;
+        const totalSlides = dots.length;
+        const slideInterval = 3000;
+        function updateCarousel() {
+            const offset = -currentIndex * 100;
+            carouselImages.style.transform = `translateX(${offset}%)`;
 
             dots.forEach((dot, index) => {
-                dot.addEventListener('click', () => goToSlide(index));
+                dot.classList.toggle('active', index === currentIndex);
             });
+        }
 
-            nextButton.addEventListener('click', nextSlide);
-            prevButton.addEventListener('click', prevSlide);
+        function goToSlide(index) {
+            currentIndex = (index + totalSlides) % totalSlides;
+            updateCarousel();
+        }
 
-            let autoSlide = setInterval(nextSlide, slideInterval);
+        function nextSlide() {
+            goToSlide(currentIndex + 1);
+        }
 
-            document.querySelector('.carousel').addEventListener('mouseover', () => {
-                clearInterval(autoSlide);
-            });
+        function prevSlide() {
+            goToSlide(currentIndex - 1);
+        }
 
-            document.querySelector('.carousel').addEventListener('mouseout', () => {
-                autoSlide = setInterval(nextSlide, slideInterval);
-            });
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => goToSlide(index));
+        });
+
+        nextButton.addEventListener('click', nextSlide);
+        prevButton.addEventListener('click', prevSlide);
+
+        let autoSlide = setInterval(nextSlide, slideInterval);
+
+        document.querySelector('.carousel').addEventListener('mouseover', () => {
+            clearInterval(autoSlide);
+        });
+
+        document.querySelector('.carousel').addEventListener('mouseout', () => {
+            autoSlide = setInterval(nextSlide, slideInterval);
+        });
     </script>
 </body>
 

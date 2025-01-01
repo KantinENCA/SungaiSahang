@@ -1,4 +1,3 @@
-// Daftar harga produk
 const prices = {
   mie_Ayam: 10000,
   martabak_Kari: 10000,
@@ -21,7 +20,6 @@ const prices = {
   jus_Alpukat: 5000,
 };
 
-// Search functionality
 document.getElementById("searchButton").addEventListener("click", function () {
   const searchTerm = document
     .getElementById("searchInput")
@@ -47,7 +45,6 @@ document.getElementById("searchButton").addEventListener("click", function () {
   }
 });
 
-// Menu modal functionality
 const openMenu = document.getElementById("openMenu");
 const menuModal = document.getElementById("menuModal");
 const closeMenu = document.getElementById("closeMenu");
@@ -60,7 +57,6 @@ closeMenu.addEventListener("click", () => {
   menuModal.style.display = "none";
 });
 
-// Quantity control functions
 function increment(id) {
   const countElement = document.getElementById(id + "_count");
   let count = parseInt(countElement.textContent, 10);
@@ -92,7 +88,6 @@ function updateTotal() {
     "Rp " + total.toLocaleString();
 }
 
-// Reset order function
 function resetOrder() {
   const counts = document.querySelectorAll(".count");
   counts.forEach((count) => {
@@ -103,7 +98,6 @@ function resetOrder() {
   document.getElementById("output").innerText = "";
 }
 
-// Submit order function with confirmation modal
 function submitOrder() {
   let orderDetails = "";
   let total = 0;
@@ -143,7 +137,6 @@ function submitOrder() {
     return;
   }
 
-  // Create confirmation modal
   const confirmationModal = document.createElement("div");
   confirmationModal.style.cssText = `
     position: fixed;
@@ -215,7 +208,6 @@ function submitOrder() {
   confirmationModal.appendChild(modalContent);
   document.body.appendChild(confirmationModal);
 
-  // Add hover effects
   const buttons = modalContent.querySelectorAll("button");
   buttons.forEach((button) => {
     button.addEventListener("mouseenter", function () {
@@ -234,14 +226,34 @@ function submitOrder() {
     });
   });
 
-  // Handle confirmation actions
+  
+const confirmButton = document.getElementById('confirm-order');
+const loadingBar = document.getElementById('loading-bar');
+
+confirmButton.addEventListener('click', () => {
+  let width = 0;
+  loadingBar.style.width = '0%';
+
+  const interval = setInterval(() => {
+    if (width >= 100) {
+      clearInterval(interval); 
+      alert('Pesanan Anda berhasil dikonfirmasi!');
+    } else {
+      width++;
+      loadingBar.style.width = width + '%';
+    }
+  }, 50);
+});
+
   document.getElementById("confirmYes").addEventListener("click", function () {
     modalContent.innerHTML = `
-      <div class="loading-container">
-        <div class="loading-spinner"></div>
-        <div class="loading-text">Pesanan Anda sedang dibuat...</div>
+    <div class="loading-container">
+      <div class="loading-bar-wrapper">
+        <div class="loading-bar"></div>
       </div>
-    `;
+      <div class="loading-text">Pesanan Anda sedang dibuat...</div>
+    </div>  
+  `;
 
     setTimeout(() => {
       alert("Pesanan berhasil dibuat! Silakan kirim struk melalui WhatsApp");
@@ -313,7 +325,6 @@ Total: Rp ${total.toLocaleString()}`;
   });
 }
 
-// Reset button confirmation
 document
   .getElementById("resetButton")
   .addEventListener("click", function (event) {
@@ -394,7 +405,225 @@ document
     });
   });
 
-// Best seller animation
+document
+  .getElementById("resetButton")
+  .addEventListener("click", function (event) {
+    event.preventDefault();
+
+    let isOrderEmpty = true;
+    for (let item in prices) {
+      const quantity =
+        parseInt(document.getElementById(item + "_count").textContent, 10) || 0;
+      if (quantity > 0) {
+        isOrderEmpty = false;
+        break;
+      }
+    }
+
+    if (isOrderEmpty) {
+      alert("Tidak dapat mereset! Pilih menu terlebih dahulu!");
+      return;
+    }
+
+    let modal = document.getElementById("confirmationModal");
+    if (!modal) {
+      modal = document.createElement("div");
+      modal.id = "confirmationModal";
+      modal.style.cssText = `
+      display: flex;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    `;
+      modal.innerHTML = `
+      <div style="
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+        max-width: 400px;
+        width: 100%; ">
+        <p>Apakah Anda yakin ingin mereset pesanan?</p>
+        <button id="confirmYes" style="
+          background-color: #28a745;
+          color: white;
+          margin: 10px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;">Ya</button>
+        <button id="confirmNo" style="
+          background-color: #dc3545;
+          color: white;
+          margin: 10px;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;">Tidak</button>
+      </div>
+    `;
+
+      const handleYes = function () {
+        resetOrder();
+        modal.remove();
+      };
+
+      const handleNo = function () {
+        modal.remove();
+      };
+
+      document
+        .getElementById("confirmYes")
+        .addEventListener("click", handleYes, { once: true });
+      document
+        .getElementById("confirmNo")
+        .addEventListener("click", handleNo, { once: true });
+
+      document.body.appendChild(modal);
+    }
+
+    modal.style.display = "flex";
+  });
+
+function cleanupConfirmationModal() {
+  const existingModal = document.querySelector('.confirmation-modal');
+  if (existingModal) {
+    existingModal.remove();
+  }
+}
+
+function submitOrder() {
+  cleanupConfirmationModal();
+  
+  let orderDetails = "";
+  let total = 0;
+  let isOrderEmpty = true;
+
+  for (let item in prices) {
+    const quantity = parseInt(document.getElementById(item + "_count").textContent, 10) || 0;
+    if (quantity > 0) {
+      orderDetails += `${item.charAt(0).toUpperCase() + item.slice(1)}: ${quantity} x Rp ${prices[item].toLocaleString()}\n`;
+      total += prices[item] * quantity;
+      isOrderEmpty = false;
+    }
+  }
+
+  const namaPembeli = document.getElementById("inputText")?.value.trim();
+  const catatan = document.getElementById("catatanPembeli")?.value.trim() || "Tidak ada catatan";
+  const deliveryOption = document.getElementById("deliveryOption")?.value || "makan_di_tempat";
+
+  if (!namaPembeli && isOrderEmpty) {
+    alert("Nama dan pesanan belum terisi!");
+    return;
+  }
+
+  if (!namaPembeli) {
+    alert("Nama pembeli tidak boleh kosong!");
+    return;
+  }
+
+  if (isOrderEmpty) {
+    alert("Pesanan belum diisi, silakan membuat pesanan.");
+    return;
+  }
+
+  const confirmationModal = document.createElement("div");
+  confirmationModal.className = 'confirmation-modal';
+  confirmationModal.style.cssText = `
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  `;
+
+  const modalContent = `
+    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%;">
+      <h2 style="color: #333; margin-bottom: 20px;">Konfirmasi Pesanan</h2>
+      <div style="text-align: left; margin: 20px 0; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+        <h3 style="color: #2c3e50; margin-bottom: 10px;">Detail Pesanan:</h3>
+        ${orderDetails.replace(/\n/g, "<br>")}
+        <p style="margin-top: 10px;"><strong>Nama:</strong> ${namaPembeli}</p>
+        <p><strong>Catatan:</strong> ${catatan}</p>
+        <p><strong>Pengantaran:</strong> ${deliveryOption === "makan_di_tempat" ? "Makan di Tempat" : "Anter ke Lobi"}</p>
+        <p style="font-size: 1.2em; color: #2c3e50; margin-top: 10px;"><strong>Total: Rp ${total.toLocaleString()}</strong></p>
+      </div>
+      <p style="margin: 20px 0; font-size: 1.1em; color: #444;">Apakah Anda yakin dengan pesanan ini?</p>
+      <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+        <button onclick="handleOrderConfirm(true)" style="padding: 12px 30px; background-color: #28a745; color: white; border: none; border-radius: 8px; cursor: pointer;">Ya</button>
+        <button onclick="handleOrderConfirm(false)" style="padding: 12px 30px; background-color: #dc3545; color: white; border: none; border-radius: 8px; cursor: pointer;">Tidak</button>
+      </div>
+    </div>
+  `;
+
+
+  
+  confirmationModal.innerHTML = modalContent;
+  document.body.appendChild(confirmationModal);
+
+  window.handleOrderConfirm = function(isConfirmed) {
+    if (isConfirmed) {
+      confirmationModal.innerHTML = `
+       <div style="background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%;">
+        <div class="loading-text">Pesanan Anda sedang dibuat...</div>
+  <div class="loading-bar">
+    <div class="progress"></div>
+  </div>
+</div>
+      `;
+
+      setTimeout(() => {
+        alert("Pesanan berhasil dibuat! Silakan kirim struk melalui WhatsApp");
+        cleanupConfirmationModal();
+
+        const strukContent = `
+Struk Pesanan
+${orderDetails}
+Nama Pembeli: ${namaPembeli}
+Catatan: ${catatan}
+Pengantaran: ${deliveryOption === "makan_di_tempat" ? "Makan di Tempat" : "Anter ke Lobi"}
+Total: Rp ${total.toLocaleString()}`;
+
+        const output = document.getElementById("output");
+        output.innerHTML = `
+          <div>
+            <h3>Struk Pesanan</h3>
+            ${orderDetails.replace(/\n/g, "<br>")}
+            <p><strong>Nama Pembeli:</strong> ${namaPembeli}</p>
+            <p><strong>Catatan:</strong> ${catatan}</p>
+            <p><strong>Pengantaran:</strong> ${deliveryOption === "makan_di_tempat" ? "Makan di Tempat" : "Anter ke Lobi"}</p>
+            <p><strong>Total: Rp ${total.toLocaleString()}</strong></p>
+          </div>
+          <button onclick="sendToWhatsApp('${encodeURIComponent(strukContent)}')" 
+            style="padding: 8px 16px; margin: 10px 0; cursor: pointer; background-color: #25D366; color: white; border: none; border-radius: 4px; font-size: 14px;">
+            <i class="fab fa-whatsapp"></i> Kirim via WhatsApp
+          </button>
+        `;
+        output.style.display = "block";
+      }, 3000);
+    } else {
+      cleanupConfirmationModal();
+    }
+  };
+
+  window.sendToWhatsApp = function(strukContent) {
+    const phoneNumber = "6288286291706";
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${strukContent}`;
+    window.open(whatsappUrl, "_blank");
+  };
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   const section = document.querySelector(".best-seller");
   if (section) {

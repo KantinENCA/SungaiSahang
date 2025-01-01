@@ -96,6 +96,7 @@ function resetOrder() {
   document.getElementById("total-harga").textContent = "Rp 0";
   document.getElementById("catatanPembeli").value = "";
   document.getElementById("output").innerText = "";
+   document.getElementById("inputText").value = "";
 }
 
 function submitOrder() {
